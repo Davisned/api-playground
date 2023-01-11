@@ -9,14 +9,14 @@ from spotipy.oauth2 import SpotifyClientCredentials
 from spotify_dtos import SpotifyPlaylist
 
 
-SPOTIPY_CLIENT_ID = ""
-SPOTIPY_CLIENT_SECRET = ""
+SPOTIPY_CLIENT_ID = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+SPOTIPY_CLIENT_SECRET = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 
 MAX_COLS_PER_ROW = 2
 MAX_TOTAL_COLS = 6
 
 DEFAULT_HEADERS = ["id", "name", "duration_ms", "popularity", "danceability", "energy", "loudness", "speechiness", "acousticness", "instrumentalness", "liveness", "tempo"]
-ALL_HEADERS = ["album", "artists", "available_markets", "disc_number", "duration_ms", "episode", "explicit", "external_ids", "id", "is_local", "name", "popularity", "track", "track_number", "danceability", "energy", "key", "loudness", "mode", "speechiness", "acousticness", "instrumentalness", "liveness", "valence", "tempo", "time_signature"]
+ALL_HEADERS = ["album", "release_date", "release_date_precision", "artists", "available_markets", "disc_number", "duration_ms", "episode", "explicit", "external_ids", "id", "is_local", "name", "popularity", "track", "track_number", "danceability", "energy", "key", "loudness", "mode", "speechiness", "acousticness", "instrumentalness", "liveness", "valence", "tempo", "time_signature"]
 
 ALL_CHART_TYPES = ["line", "area", "bar"]
 DEFAULT_CHART_TYPE = "line"

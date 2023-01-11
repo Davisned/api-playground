@@ -1,6 +1,6 @@
 from typing import Dict, List, Literal, Optional
 
-from pydantic import BaseModel
+from pydantic import BaseModel, root_validator
 
 
 class SpotifyUser(BaseModel):
@@ -22,6 +22,8 @@ class SpotifyAlbum(BaseModel):
 
 class SpotifyTrack(BaseModel):
     album: SpotifyAlbum
+    release_date: Optional[str]
+    release_date_precision: Optional[str]
     artists: List[SpotifyArtist]
     available_markets: List[str]
     disc_number: int
@@ -47,6 +49,14 @@ class SpotifyTrack(BaseModel):
     valence: float
     tempo: float
     time_signature: int
+
+    @root_validator(allow_reuse=True)
+    def _set_release_dates(cls, values):
+        if 'album' in values:
+            values['release_date'] = values['album'].release_date
+            values['release_date_precision'] = values['album'].release_date_precision
+
+        return values
 
 class SpotifyPlaylist(BaseModel):
     tracks: List[SpotifyTrack]
